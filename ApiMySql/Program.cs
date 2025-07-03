@@ -1,4 +1,5 @@
 using ApiWeb.Context;
+using ApiWeb.Services;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -16,6 +17,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<EmpleadoService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,7 +27,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
