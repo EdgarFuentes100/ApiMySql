@@ -1,3 +1,4 @@
+using ApiMySql.Middleware;
 using ApiWeb.Context;
 using ApiWeb.Services;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +28,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseMiddleware<RequestLoggingMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
