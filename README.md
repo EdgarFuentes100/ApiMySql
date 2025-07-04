@@ -26,32 +26,72 @@ Esta es una API RESTful desarrollada con **ASP.NET Core Web API** y **MySQL** qu
 - Git + GitHub
 
 ---
+## 🚀 Clonar API
 
+### 1. Clonar el repositorio
+### Usando Git Bash
+
+#### 1. Abre **Git Bash** en tu computadora.  
+#### 2. Navega a la carpeta donde quieres guardar el proyecto, por ejemplo:  
+   ```bash
+   cd C:\Users\Desktop\
+   ```
+
+  Ejecuta el siguiente comando para clonar el repositorio:
+
+  git clone https://github.com/usuario/api-empleados.git 
+
+Para abrir el proyecto dar doble click sobre el archivo .sln que se encuentra en la raiz.
+
+### Usando Visual Studio
+#### 1. Abre Visual Studio.
+
+En la pantalla de inicio, selecciona Clonar un repositorio.
+
+Pega la URL del repositorio:
+
+https://github.com/usuario/api-empleados.git 
+
+Elige la carpeta local donde quieres guardar el proyecto.
+
+Haz clic en Clonar.
+
+Visual Studio descargará el proyecto y lo abrirá automáticamente.
+
+---
 ## Configuracion del proyecto
 
 ### 1. Configurar la conexión a la base de datos
 
-    Edita el archivo appsettings.json, en la seccion ConnectionStrings, ajusta la cadena de conexión MySQL con los datos de tu entorno local. Debes colocar:
+Edita el archivo appsettings.json, en la seccion ConnectionStrings, ajusta la cadena de conexión MySQL con los datos de tu entorno local. Debes colocar:
 
-      - El servidor (normalmente localhost para una base de datos local)
-
-      - El nombre de la base de datos que deseas crear
-
-      - El usuario y la contraseña de tu servidor MySQL
+- El servidor (normalmente localhost para una base de datos local)
+- El nombre de la base de datos que deseas crear
+- El usuario y la contraseña de tu servidor MySQL
 
         Ejemplo( "Connection": "Server=localhost;Database=bd_entrevista;User=root;Password=123;")
 
 ### 2. Aplicar Migraciones
+Abre la Consola del Administrador de Paquetes en Visual Studio (Menú: Herramientas > Administrador de paquetes NuGet > Consola del Administrador de paquetes). Luego, ejecuta los siguientes comandos para crear y aplicar las migraciones a la base de datos:
    
-       Abre la Consola del Administrador de Paquetes en Visual Studio (Menú: Herramientas > Administrador de paquetes NuGet > Consola del Administrador de paquetes). Luego, ejecuta los siguientes comandos para          crear y aplicar las migraciones a la base de datos:
-   
-        - add-migration addNewTable
-        - update-database
-        Nota: si existen migraciones en la carpeta Migrations borrarlas para que se cree la nueva bd
----
-### 3. Insertar datos en bd 
-     Abre MySQL Workbench, entra a tu conexión, pega el script y ejecútalo, o usa el gestor de MySQL que tengas, no olvides seleccionar la base de datos que se crear al aplicar las migraciones.
+      add-migration addNewTable
+      
+      update-database
+Nota: si existen migraciones en la carpeta Migrations borrarlas para que se cree la nueva base de datos
 
+### Correr la API
+
+Para ejecutar la aplicación, puedes:
+
+Presionar la tecla F5 para iniciar en modo depuración.
+
+O hacer clic en el botón de Iniciar (ícono de ▶️) que está en la barra superior.
+
+Visual Studio compilará el proyecto y lanzará la API, normalmente abriendo una ventana del navegador con la URL local.
+
+---
+### 3. Insertar datos en base de datos
+Abre MySQL Workbench, entra a tu conexión, pega el script y ejecútalo, o usa el gestor de MySQL que tengas, no olvides seleccionar la base de datos que se crear al aplicar las migraciones.
 ```sql
 INSERT INTO Empleado (nombre, edad, puesto, departamento) VALUES
 ('Ana Pérez', 35, 'Contadora', 'Contabilidad'),
@@ -71,16 +111,6 @@ INSERT INTO Empleado (nombre, edad, puesto, departamento) VALUES
 ('Patricia Castro', 36, 'Analista de Nómina', 'RRHH');
 ```
 
-## 🚀 Clonar y correr la API
-
-### 1. Clonar el repositorio
-
-    git clone https://github.com/usuario/api-empleados.git
-
-### 2. Abrir el proyecto
-
-  Dar doble click sobre el archivo .sln que se encuentra en la raiz del proyecto, dar F5 para correr
-
 ### 🧪 Ejemplos de prueba con Swagger y Postman
 
 ### 📡 Lista de Endpoints con Swagger
@@ -96,14 +126,13 @@ INSERT INTO Empleado (nombre, edad, puesto, departamento) VALUES
 | GET         | `/api/empleados/ObtenerEstadisticas`       | Obtiene estadísticas de empleados (total, promedios, etc). |
 
 ### 🔷 Probar con Swagger
+Ejecuta la API (en Visual Studio, presiona Ctrl + F5).
 
-   Ejecuta la API (en Visual Studio, presiona Ctrl + F5).
-
-   Abre tu navegador y ve a:
+Abre tu navegador y ve a:
    
 #### https://localhost:7205/swagger/index.html
 
-   Encontrarás una interfaz interactiva con todos los endpoints disponibles.
+Encontrarás una interfaz interactiva con todos los endpoints disponibles.
 
 #### 1. Selecciona el endpoint que deseas probar.
 
@@ -119,9 +148,8 @@ INSERT INTO Empleado (nombre, edad, puesto, departamento) VALUES
 
 ##### 2. Crea una nueva petición.
 
-##### 3. Configura la petición con el método HTTP y la URL correspondiente, 
-
-      por ejemplo: Método: POST (Revisar la seccion de Enpoint para ver el tipo de Método)
+##### 3. Configura la petición con el método HTTP y la URL correspondiente 
+por ejemplo: Método: POST (Revisar la seccion de Enpoint para ver el tipo de Método)
 
 ## 📋 Uso de los Endpoints en Postman
 
