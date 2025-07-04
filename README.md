@@ -39,7 +39,7 @@ Esta es una API RESTful desarrollada con **ASP.NET Core Web API** y **MySQL** qu
 
   Ejecuta el siguiente comando para clonar el repositorio:
 
-  git clone https://github.com/usuario/api-empleados.git 
+  git clone https://github.com/EdgarFuentes100/ApiMySql.git
 
 Para abrir el proyecto dar doble click sobre el archivo .sln que se encuentra en la raiz.
 
@@ -50,7 +50,7 @@ En la pantalla de inicio, selecciona Clonar un repositorio.
 
 Pega la URL del repositorio:
 
-https://github.com/usuario/api-empleados.git 
+https://github.com/EdgarFuentes100/ApiMySql.git
 
 Elige la carpeta local donde quieres guardar el proyecto.
 
